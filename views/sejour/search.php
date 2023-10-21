@@ -73,6 +73,14 @@ include '../../configuration/connexion.inc.php';
                 $stmpName->bindParam(':prenom', $prenom);
                 if ($stmpName->execute()) {
                     $ans = $stmpName->fetchAll();
+                    if (!count($ans) > 0) {
+                        echo "
+                            <script>
+                            alert('Aucun voyageur trouvé');
+                            window.location.href='../../views/sejour/search.php';
+                            </script>
+                        ";
+                    }
                     // L"ID EST DANS $ANS
                     foreach ($ans as $res) {
                         $searchRequest = "SELECT debut, fin, id_sejour, photo, voyageur.nom AS nomVoyageur, prenom, logement.nom AS nomLogement 
