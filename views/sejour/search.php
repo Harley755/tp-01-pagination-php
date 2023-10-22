@@ -132,6 +132,10 @@ include '../../configuration/connexion.inc.php';
         }
         ?>
     </div>
+
+    <!-- <script>
+        console.log(document.myform.elements.length);
+    </script> -->
 </body>
 
 </html>
